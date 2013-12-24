@@ -19,8 +19,16 @@
   <div id="wrapper" class="">
     <div class="container">
       <div class="page-header">
-        <h1><%= link_to "Recipes", root_path %> <small>A Nested
-        Attributes Test Site</small></h1>
+        <h1><%= link_to "Recipes", root_path %>
+          <small>A Nested Attributes Test Site</small>
+          <%= link_to new_recipe_path,
+              class: "btn btn-primary",
+              style: "float: right;" do %>
+            <i class="glyphicon glyphicon-plus"></i>
+            New Recipe
+          <% end %>
+        </h1>
+
       </div>
     </div>
 
@@ -37,14 +45,20 @@
 
     <div id="actions" class="container">
       <hr />
-      <%= link_to "New Recipe", new_recipe_path, class: "btn
-      btn-primary" %>
     </div>
   </div>
 
   <div id="footer">
     <div class="container">
-      <p class="text-muted">Testing nested attributes.</p>
+      <div class="navbar navbar-default">
+        <div class="nav navbar-nav">
+          <p class="navbar-text">
+            <span class="text-muted">Testing nested attributes. Copyright
+              &copy; 2013 Tamara Temple Web Development. License: MIT.
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
