@@ -43,7 +43,10 @@ class RecipesController < ApplicationController
 
                                    # nested ingredients, vetting all
                                    # the fields
-                                   ingredients_attributes: [:quantity, :measure, :name],
+                                   # testing what happens when the nested params aren't permitted
+                                   # ingredients_attributes: [:quantity, :measure, :name],
+                                   # When omitted like this, the ingredients entered are not saved,
+                                   # and there is no indication.
 
                                    # nested directions, vetting the
                                    # single field
