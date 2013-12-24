@@ -24,6 +24,13 @@
       </div>
     </div>
 
+    <div id="messages" class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class =>
+        "alert alert-#{bootstrap_alert_type_from_flash(name)} alert-dismissable" %>
+      <% end %>
+    </div>
+
     <div id="content" class="container">
       <%= yield %>      
     </div>
