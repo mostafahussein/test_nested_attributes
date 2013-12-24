@@ -19,9 +19,8 @@ the aid of JavaScript working with Rails. Luckily,
 [Ryan Bates][ryanb] of
 [Railscasts][railscasts]
 fame has provided
-[nested_form][nested_form]
-a groovy little
-gem that provides just the functionality needed.
+[nested_form][nested_form],
+a groovy little gem that provides just the functionality I needed.
 
 Ryan's instructions are really easy to follow, and he provides a
 reference implementation using the gem, so you even get an example.
@@ -39,9 +38,9 @@ $ bundle install
 
 ```
 
-## Set up the database:
+## Stand up the database:
 
-Using SQLite3 as the database manager, so you can just set it up:
+I'm using SQLite3 as the database manager here, so you can just stand it up:
 
 ``` bash
 $ rake db:drop db:create db:migrate --trace
@@ -57,10 +56,10 @@ Navigate to the server page and play away!
 
 # Contributing
 
-This was really a proof-of-concept to myself that I could set up a
-Rails application with nested attributes by just following the
-available documentation on [Rails Guides][guides]  and the
-[API Docs][api].
+This was just a proof-of-concept to myself that I could set up a
+Rails application with nested attributes by only following the
+available documentation on [Rails Guides][guides] and the
+[API Docs][apidocs], as well as the associated gems.
 
 That said, if you'd like to contribute, feel free to fork this on
 [Github][repo] and issue a pull-request with your changes.
