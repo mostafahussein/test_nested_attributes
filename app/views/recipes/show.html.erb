@@ -1,28 +1,54 @@
-<h2><%= @recipe.name %></h2>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h2><%= @recipe.name %></h2>
+    </div>
+  </div>
+</div>
 
-<h3>Ingredients</h3>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Ingredients</h3>
+    <ul class="ingredients">
+      <% @ingredients.each do |i| %>
+      <li>
+        <span class="quantity"><%= i.quantity %></span>
+        <span class="measure"><%= i.measure %></span>
+        <span class="ingredient"><%= i.name %></span>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<ul class="ingredients">
-  <% @ingredients.each do |i| %>
-  <li>
-    <span class="quantity"><%= i.quantity %></span>
-    <span class="measure"><%= i.measure %></span>
-    <span class="ingredient"><%= i.name %></span>
-  </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Directions</h3>
+    <ol class="directions">
+      <% @directions.each do |d| %>
+      <li>
+        <span class="direction"><%= d.step %></span>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
 
-<h3>Directions</h3>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Notes</h3>
+    <p><%= @recipe.notes %></p>
+  </div>
+</div>
 
-<ol class="directions">
-  <% @directions.each do |d| %>
-  <li>
-    <span class="direction"><%= d.step %></span>
-  </li>
-  <% end %>
-</ol>
-
-<h3>Notes</h3>
-
-<%= @recipe.notes %>
-
+<div class="row">
+  <div class="col-xs-12">
+    <p>
+      <span class="text-muted">Created:</span>
+      <%= l(@recipe.created_at) %>
+      <br />
+      <span class="text-muted">Updated:</span>
+      <%= l(@recipe.updated_at) %>
+    </p>
+  </div>
+</div>

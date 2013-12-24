@@ -1,38 +1,90 @@
-<p>the form</p>
+<%= nested_form_for @recipe, html: {class: "form", role: "form"} do |f| %>
+<div class="form-group">
+  <%= f.label :name, "New Recipe Name:", class: "" %>
+  <%= f.text_field :name,
+      class: "form-control",
+      placeholder: "Recipe Name" %>    
+</div>
 
-
-<%= form_for @recipe do |f| %>
-<h2>Recipe</h2>
-<p>Name: <%= f.text_field :name %></p>
-
-<h3>Ingredients</h3>
-
-<div>
+<%= f.label :ingredients %>
 <%= f.fields_for :ingredients do |i| %>
-<ul class="ingredients">
-<li>Quantity: <%= i.text_field :quantity %></li>
-<li>Measure: <%= i.text_field :measure %></li>
-<li>Ingredient: <%= i.text_field :name %></li>
-</ul>
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-1">
+      <%= i.label :quantity %>
+      <%= i.text_field :quantity, class: "form-control", width: "" %>
+    </div>
+    
+    <div class="col-sm-1">
+      <%= i.label :measure %>
+      <%= i.select(:measure, [
+          ["",""],
+          ["cup","cup"],
+          ["tsp","tsp"],
+          ["tbsp","tblsp"],
+          ["oz","oz"],
+          ["lb","lb"],
+          ["can","can"]
+          ],
+          {},
+          {class: "form-control"}
+          ) %>
+    </div>
+
+    <div class="col-sm-9">
+      <%= i.label :name %>
+      <%= i.text_field :name, class: "form-control" %>      
+    </div>
+
+    <div class="col-sm-1">
+      <label>&nbsp;</label>
+      <%= i.link_to_remove class: "form-control btn btn-sm btn-danger",
+          title: "Remove Ingredient"  do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    </div>
+  </div>
+</div>
 <% end %>
+<div class="form-group">
+  <%= f.link_to_add :ingredients,
+      class: "btn btn-sm btn-info" do %>
+    <i class="glyphicon glyphicon-plus"></i>
+    Add another ingredient
+  <% end %>
 </div>
 
-<h3>Directions</h3>
 
-<div>
-<ol class="directions">
+<%= f.label :directions %>
 <%= f.fields_for :directions do |d| %>
-  <li><%= d.text_field :step %></li>
+<div class="form-group">
+<div class="row">
+  <div class="col-sm-11">
+    <%= d.text_area :step, rows: "1", class: "form-control" %>
+  </div>
+  <div class="col-sm-1">
+    <%= d.link_to_remove class: "form-control btn btn-sm btn-danger",
+        title: "Remove step" do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
+  </div>
+</div>
+</div>
 <% end %>
-</ol>
+<div class="form-group">
+  <%= f.link_to_add :directions,
+      class: "btn btn-sm btn-info" do %>
+    <i class="glyphicon glyphicon-plus"></i>
+    Add another step
+  <% end %>
 </div>
 
-
-<h3>Notes</h3>
-<div>
-<%= f.text_area :notes %>
+<div class="form-group">
+  <%= f.label :notes %>
+  <%= f.text_area :notes, rows: "5", class: "form-control" %>
 </div>
 
 <br />
-<%= f.submit "Save Recipe" %>
+<%= f.submit "Save Recipe",
+    class: "btn btn-success" %>
 <% end %>
