@@ -1,0 +1,38 @@
+<p>the form</p>
+
+
+<%= form_for @recipe do |f| %>
+<h2>Recipe</h2>
+<p>Name: <%= f.text_field :name %></p>
+
+<h3>Ingredients</h3>
+
+<div>
+<%= f.fields_for :ingredients do |i| %>
+<ul class="ingredients">
+<li>Quantity: <%= i.text_field :quantity %></li>
+<li>Measure: <%= i.text_field :measure %></li>
+<li>Ingredient: <%= i.text_field :name %></li>
+</ul>
+<% end %>
+</div>
+
+<h3>Directions</h3>
+
+<div>
+<ol class="directions">
+<%= f.fields_for :directions do |d| %>
+  <li><%= d.text_field :step %></li>
+<% end %>
+</ol>
+</div>
+
+
+<h3>Notes</h3>
+<div>
+<%= f.text_area :notes %>
+</div>
+
+<br />
+<%= f.submit "Save Recipe" %>
+<% end %>

@@ -1,0 +1,28 @@
+<h2><%= @recipe.name %></h2>
+
+<h3>Ingredients</h3>
+
+<ul class="ingredients">
+  <% @ingredients.each do |i| %>
+  <li>
+    <span class="quantity"><%= i.quantity %></span>
+    <span class="measure"><%= i.measure %></span>
+    <span class="ingredient"><%= i.name %></span>
+  </li>
+  <% end %>
+</ul>
+
+<h3>Directions</h3>
+
+<ol class="directions">
+  <% @directions.each do |d| %>
+  <li>
+    <span class="direction"><%= d.step %></span>
+  </li>
+  <% end %>
+</ol>
+
+<h3>Notes</h3>
+
+<%= @recipe.notes %>
+

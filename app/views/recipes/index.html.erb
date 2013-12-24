@@ -1,0 +1,10 @@
+<h1>All Recipes</h1>
+
+<table width="75%" cellspacing="3px" cellpadding="3px" border="0">
+  <% @recipes.each do |r| %>
+  <tr>
+    <td><%= link_to r.name, r %></td>
+    <td><%= r.notes %></td>
+  </tr>
+  <% end %>
+</table>
